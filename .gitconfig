@@ -1,0 +1,8 @@
+[user]
+	email = martin.accou@icloud.com
+	name = Martin Accou
+[alias]
+	ac = commit -am
+	p = push
+	last = log -1 HEAD --stat
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
