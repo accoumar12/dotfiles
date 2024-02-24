@@ -6,3 +6,11 @@
 	p = push
 	last = log -1 HEAD --stat
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	bb = !better-git-branch.sh
+	pfl = push --force-with-lease
+[rerere]
+	enabled = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
