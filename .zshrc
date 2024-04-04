@@ -4,6 +4,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Necessary environment variables for the project
+export DATABASE_PATH="/mnt/c/Users/maccou/Desktop/stage-maccou/data"
+export MODELS_PATH="/mnt/c/Users/maccou/Desktop/stage-maccou/models"
+
 source ~/.zsh_aliases
 
 # Enable vi mode
