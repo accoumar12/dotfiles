@@ -7,6 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Necessary environment variables for the project
 export DATABASE_PATH="/mnt/c/Users/maccou/Desktop/stage-maccou/data"
 export MODELS_PATH="/mnt/c/Users/maccou/Desktop/stage-maccou/models"
+export PYTHONPATH=/mnt/c/Users/maccou/Desktop/stage-maccou/deep-mesh/core:$PYTHONPATH
 
 source ~/.zsh_aliases
 
@@ -111,22 +112,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+#
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('//anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/maccou/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "//anaconda3/etc/profile.d/conda.sh" ]; then
-        . "//anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/maccou/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/maccou/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="//anaconda3/bin:$PATH"
+        export PATH="/home/maccou/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
