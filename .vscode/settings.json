@@ -1,0 +1,187 @@
+{
+  "files.refactoring.autoSave": true,
+  "vim.foldfix": true,
+  "python.analysis.indexing": true,
+  "python.analysis.autoImportCompletions": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    // "source.organizeImports": "explicit"
+    "source.fixAll": "explicit",
+    // "source.addMissingImports": true,
+  },
+  "remote.SSH.remotePlatform": {
+    "thor.d3s": "linux",
+    "192.168.0.58": "linux"
+  },
+  "git.autofetch": true,
+  "python.testing.pytestArgs": ["core/tests"],
+
+  "editor.inlineSuggest.enabled": true,
+
+  "editor.stickyScroll.enabled": true,
+  "remote.downloadExtensionsLocally": true,
+
+  "vim.handleKeys": {
+    //   "<C-c>": false,
+    "<C-w>": false,
+    //   "<C-f>": false,
+    "<C-a>": false,
+    //   "<C-b>": false,
+    //   "<C-q>": false,
+    "<C-n>": false
+  },
+  "vim.useSystemClipboard": true,
+
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "#a9dc7660",
+  "vim.highlightedyank.duration": 250,
+  "vim.leader": "<space>",
+
+  "notebook.lineNumbers": "on",
+  "editor.lineNumbers": "relative",
+
+  "workbench.colorCustomizations": {
+    "editorLineNumber.foreground": "#838181",
+    // "editorError.foreground": "#00000000",
+    // "editorWarning.foreground": "#00000000",
+    // "editorInfo.foreground": "#00000000"
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<Leader>", "r"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["<Leader>", "a"],
+      "commands": ["editor.unfoldAll"]
+    },
+    {
+      "before": ["<Leader>", "c"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["<Leader>", "d"],
+      "after": ["<C-d>", "z", "z"]
+    },
+    {
+      "before": ["<Leader>", "u"],
+      "after": ["<C-u>", "z", "z"]
+    },
+    { "before": ["<Leader>", "j"], "commands": [":bprevious"] },
+    { "before": ["<Leader>", "k"], "commands": [":bnext"] },
+    { "before": ["<Leader>", "v"], "commands": [":vsplit"] },
+    { "before": ["<Leader>", "s"], "commands": [":split"] },
+    {
+      "before": ["leader", "h"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    // {
+    //   "before": ["leader", "d"],
+    //   "commands": ["workbench.action.focusBelowGroup"]
+    // },
+    // {
+    //   "before": ["leader", "u"],
+    //   "commands": ["workbench.action.focusAboveGroup"]
+    // },
+    {
+      "before": ["leader", "l"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+    {
+      "before": ["<Leader>", "g"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<Leader>", "f"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<Leader>", "p"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["<Leader>", "T"],
+      "commands": ["workbench.action.showAllSymbols"]
+    },
+    {
+      "before": ["<Leader>", "t"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    { "before": ["leader", "w"], "commands": [":w!"] },
+    { "before": ["leader", "q"], "commands": [":wq"] },
+    { "before": ["leader", "x"], "commands": [":x!"] },
+  ],
+
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+  ],
+
+  "indentRainbow.indicatorStyle": "light",
+  "indentRainbow.lightIndicatorStyleLineWidth": 1,
+  // the same colors as above but more visible
+  "indentRainbow.colors": [
+    "rgba(255,255,64,0.3)",
+    "rgba(127,255,127,0.3)",
+    "rgba(255,127,255,0.3)",
+    "rgba(79,236,236,0.3)"
+  ],
+  // useful to keep the cursor in the middle of the screen
+  "editor.cursorSurroundingLines": 100,
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "window.restoreFullscreen": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
+  "workbench.iconTheme": "symbols",
+  "workbench.editorAssociations": {
+    "*.pdf": "latex-workshop-pdf-hook"
+  },
+  "settingsSync.keybindingsPerPlatform": false,
+  // "terminal.integrated.sendKeybindingsToShell": true,
+  "editor.wordWrap": "on",
+  "git.openRepositoryInParentFolders": "never",
+  "workbench.startupEditor": "none",
+  "breadcrumbs.enabled": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "workbench.activityBar.location": "hidden",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "editor.defaultFormatter": "charliermarsh.ruff",
+  "window.menuBarVisibility": "compact",
+  "gitlens.codeLens.enabled": false,
+  "mypy.dmypyExecutable": "/home/maccou/miniconda3/envs/myenv/bin/dmypy",
+  "workbench.sideBar.location": "right",
+  "gitlens.currentLine.enabled": false,
+  "terminal.integrated.env.linux": {},
+  "mypy.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "symbols.hidesExplorerArrows": false,
+  "[sql]": {
+    
+  },
+  "svelte.enable-ts-plugin": true,
+  "sqltools.connections": [],
+  "[dotenv]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
+}
