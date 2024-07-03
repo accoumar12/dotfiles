@@ -41,5 +41,5 @@ alias weather='function _weather() { curl wttr.in/$1; }; _weather'
 alias p='python'
 alias gac='f() { git add -A; git commit -m "$1" };f'
 # useful for work
-alias w='cd /mnt/c/Users/maccou/Desktop/stage-maccou/deep-mesh && conda activate myenv'
-alias wa='cd /mnt/c/Users/maccou/Desktop/stage-maccou/labelizer && conda activate labelizer_env'
+alias w='cd ~/stage_maccou'
+alias rcode='code --folder-uri=vscode-remote://ssh-remote+thor.d3s/home/maccou/Bureau/stage-maccou/deep-mesh'

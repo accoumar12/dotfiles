@@ -1,14 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
+export PYTHONPATH=/home/maccou/stage_maccou/bom:$PYTHONPATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Necessary environment variables for the project
-export DATABASE_PATH="/mnt/c/Users/maccou/Desktop/stage-maccou/data"
-export MODELS_PATH="/mnt/c/Users/maccou/Desktop/stage-maccou/models"
-export PYTHONPATH=/mnt/c/Users/maccou/Desktop/stage-maccou/deep-mesh/core:$PYTHONPATH
-
 source ~/.zsh_aliases
 
 # Enable vi mode
@@ -132,3 +130,7 @@ unset __conda_setup
 export PATH="$PATH:$HOME/.rvm/bin"
 # eval "$(gh copilot alias -- zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
