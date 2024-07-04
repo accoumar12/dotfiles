@@ -88,6 +88,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
 git
 zsh-autosuggestions
+you-should-use
 zsh-syntax-highlighting
 vi-mode)
 
