@@ -40,6 +40,3 @@ alias du1='du -h -d 1'
 alias weather='function _weather() { curl wttr.in/$1; }; _weather'
 alias p='python'
 alias gac='f() { git add -A; git commit -m "$1" };f'
-# useful for work
-alias w='cd ~/stage_maccou'
-alias rcode='code --folder-uri=vscode-remote://ssh-remote+thor.d3s/home/maccou/Bureau/stage-maccou/deep-mesh'
