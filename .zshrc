@@ -8,7 +8,6 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
-export PYTHONPATH=/home/maccou/stage_maccou/bom:$PYTHONPATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -152,14 +151,14 @@ clip() {
     }
 # Function to count the number of lines in a file or command output
 lc() {
-     if [ -f "$1" ]; then
-             # If argument is a file, count lines in the file
-                     wc -l < "$1"
-                         else
-                                 # Otherwise, count lines in the output of the command
-                                         "$@" | wc -l
-                                             fi
-                                             }
+    if [ -f "$1" ]; then
+        # If argument is a file, count lines in the file
+        wc -l < "$1"
+    else
+        # Otherwise, count lines in the output of the command
+        "$@" | wc -l
+    fi
+}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
