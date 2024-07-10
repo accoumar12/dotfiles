@@ -10,6 +10,15 @@
             "console": "integratedTerminal",
         },
         {
+            "name": "Python Debugger: Add workspace to PYTHONPATH",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}:${env:PYTHONPATH}"
+        },
+        {
             "name": "Python Debugger: Current File with Arguments",
             "type": "debugpy",
             "request": "launch",
