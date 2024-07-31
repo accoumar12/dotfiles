@@ -4,7 +4,6 @@
 	ac = commit -am
 	last = log -1 HEAD --stat
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
-	bb = !better-git-branch.sh
 [rerere]
 	enabled = true
 [column]
