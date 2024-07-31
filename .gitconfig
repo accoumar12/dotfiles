@@ -1,5 +1,4 @@
-[user]
-	email = martin.accou@icloud.com
+[user] email = martin.accou@icloud.com
 	name = Martin Accou
 [alias]
 	ac = commit -am
@@ -14,6 +13,5 @@
 	sort = -committerdate
 [pull]
 	rebase = true
-	ff = only
 [init]
 	defaultBranch = main

@@ -137,19 +137,18 @@ unset __conda_setup
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-# eval "$(gh copilot alias -- zsh)"
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init --cmd cd zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# PS1="%{$fg[green]%}%n%{$reset_color%}@%{$fg[cyan]%}${${(%):-%m}} %{$fg[yellow]%}%~ %{$reset_color%}%% "
 
 # Function to copy the output of any command to the clipboard using xclip
 clip() {
     "$@" | xclip -selection clipboard
     }
+
 # Function to count the number of lines in a file or command output
 lc() {
     if [ -f "$1" ]; then
@@ -163,3 +162,9 @@ lc() {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export POETRY_VIRTUALENVS_IN_PROJECT=true

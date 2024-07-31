@@ -1,6 +1,7 @@
 alias hg='history|grep'
 alias tn='tmux new-session -s'
 alias ta='tmux attach -t'
+alias tl='tmux list-sessions'
 
 ## Use a long listing format ##
 alias ll='ls -la'
@@ -40,3 +41,6 @@ alias du1='du -h -d 1'
 alias weather='function _weather() { curl wttr.in/$1; }; _weather'
 alias p='python'
 alias gac='f() { git add -A; git commit -m "$1" };f'
+
+alias codefzf='code $(fzf --preview="cat {}")'
+alias fzfp='fzf --preview="cat {}"'
