@@ -1,4 +1,5 @@
 {
+  "editor.snippetSuggestions": "top",
   "files.refactoring.autoSave": true,
   "vim.foldfix": true,
   "python.analysis.indexing": true,
