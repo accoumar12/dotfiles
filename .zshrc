@@ -189,3 +189,8 @@ setopt HIST_REDUCE_BLANKS    # Remove superfluous blanks from each command line 
 HIST_STAMPS="yyyy-mm-dd"
 
 bindkey '^R' fzf_history_search
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+. "$HOME/.cargo/env"
+eval "$(uv generate-shell-completion zsh)"
