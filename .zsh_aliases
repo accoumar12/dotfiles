@@ -44,3 +44,4 @@ alias gac='f() { git add -A; git commit -m "$1" };f'
 
 alias codefzf='code $(fzf --preview="cat {}")'
 alias fzfp='fzf --preview="cat {}"'
+alias rsync="rsync -av --info=progress2 --exclude='.git'"
