@@ -6,8 +6,8 @@
 
 # -- bindings ------------------------------------------------------------------
 
-bind-key -n C-Space send-prefix
-bind-key -n C-b send-prefix \; send-prefix
+# personal prefix
+set-option -g prefix C-Space
 
 # preserve tmux stock bindings,
 # while adding bindings that don't conflict with these stock bindings
