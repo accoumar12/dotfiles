@@ -12,8 +12,6 @@ export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Necessary environment variables for the project
-source ~/.zsh_aliases
 
 # Enable vi mode
 bindkey -v
@@ -180,4 +178,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
 eval "$(uv generate-shell-completion zsh)"
 
+source ~/.zsh_aliases
+
 export PYTHONPATH="${PYTHONPATH}:/home/maccou/work/3d/3d-analytics"
+
