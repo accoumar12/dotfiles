@@ -1,7 +1,7 @@
-alias hg='history|grep'
-alias tn='tmux new-session -s'
-alias ta='tmux attach -t'
-alias tl='tmux list-sessions'
+# temporary
+alias datasync='rsync -av --info=progress2  maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/data /home/maccou/work/3d/3d_segmentation/data/'
+alias expsync="rsync -av --delete --include='*/' --include='*/visualisation/**' --exclude='*' maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp"
+
 
 ## Use a long listing format ##
 alias ll='ls -la'
@@ -16,6 +16,10 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 # handy short cuts #
+alias hg='history|grep'
+alias tn='tmux new-session -s'
+alias ta='tmux attach -t'
+alias tl='tmux list-sessions'
 alias t='tmux'
 alias m='make'
 alias h='history'
@@ -45,3 +49,19 @@ alias gac='f() { git add -A; git commit -m "$1" };f'
 alias codefzf='code $(fzf --preview="cat {}")'
 alias fzfp='fzf --preview="cat {}"'
 alias rsync="rsync -av --info=progress2 --exclude='.git'"
+
+# Function to copy the output of any command to the clipboard using xclip
+clip() {
+    "$@" | xclip -selection clipboard
+    }
+
+# Function to count the number of lines in a file or command output
+lc() {
+    if [ -f "$1" ]; then
+        # If argument is a file, count lines in the file
+        wc -l < "$1"
+    else
+        # Otherwise, count lines in the output of the command
+        "$@" | wc -l
+    fi
+}

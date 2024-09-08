@@ -145,21 +145,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Function to copy the output of any command to the clipboard using xclip
-clip() {
-    "$@" | xclip -selection clipboard
-    }
-
-# Function to count the number of lines in a file or command output
-lc() {
-    if [ -f "$1" ]; then
-        # If argument is a file, count lines in the file
-        wc -l < "$1"
-    else
-        # Otherwise, count lines in the output of the command
-        "$@" | wc -l
-    fi
-}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -194,3 +179,5 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 . "$HOME/.cargo/env"
 eval "$(uv generate-shell-completion zsh)"
+
+export PYTHONPATH="${PYTHONPATH}:/home/maccou/work/3d/3d-analytics"
