@@ -34,7 +34,7 @@ alias update='sudo apt-get update && sudo apt-get upgrade'
 alias su='sudo -i'
 alias grep='grep --color=auto'
 alias df='df -h'
-alias reload='source ~/.zshrc'
+alias reload='exec zsh'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
@@ -50,10 +50,6 @@ alias codefzf='code $(fzf --preview="cat {}")'
 alias fzfp='fzf --preview="cat {}"'
 alias rsync="rsync -av --info=progress2 --exclude='.git'"
 
-# Function to copy the output of any command to the clipboard using xclip
-clip() {
-    "$@" | xclip -selection clipboard
-    }
 
 # Function to count the number of lines in a file or command output
 lc() {
@@ -80,7 +76,7 @@ alias lrt='ls -1Fcrt'
 alias lsr='ls -lARFh' #Recursive list of files and directories
 alias lsn='ls -1'     #A column contains name of files and directories
 
-alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
+alias zshrc='vim ~/.zshrc' # Quick access to the .zshrc file
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
@@ -97,6 +93,7 @@ alias -g CA="2>&1 | cat -A"
 alias -g NE="2> /dev/null"
 alias -g NUL="> /dev/null 2>&1"
 alias -g P="2>&1| pygmentize -l pytb"
+alias -g C="| xclip -selection clipboard"
 
 alias dud='du -d 1 -h'
 (( $+commands[duf] )) || alias duf='du -sh *'
