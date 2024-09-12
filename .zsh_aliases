@@ -1,6 +1,7 @@
 # temporary
-alias datasync='rsync -av --info=progress2  maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/data /home/maccou/work/3d/3d_segmentation/data/'
-alias expsync="rsync -av --delete --include='*/' --include='*/visualisation/**' --exclude='*' maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp"
+alias pointceptdatasync='rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/'
+alias segdatasync='rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/data/ /home/maccou/work/3d/3d_segmentation/data/'
+alias expsync="rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp"
 
 
 ## Use a long listing format ##
