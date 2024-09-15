@@ -1,3 +1,5 @@
+zmodload zsh/zprof
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -7,7 +9,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
+# export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -77,8 +79,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -86,7 +86,6 @@ export NVM_COMPLETION=true
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-zsh-nvm
 git
 zsh-autosuggestions
 zsh-fzf-history-search
@@ -122,6 +121,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/maccou/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -137,22 +137,19 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+export PATH="/mnt/c/Users/maccou/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$HOME/.local/bin:$PATH"
 eval "$(zoxide init --cmd cd zsh)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 export POETRY_VIRTUALENVS_IN_PROJECT=true
 
@@ -185,3 +182,9 @@ source ~/.zsh_aliases
 
 export PYTHONPATH="${PYTHONPATH}:/home/maccou/work/3d/3d-analytics"
 
+# fnm
+FNM_PATH="/home/maccou/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/maccou/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
