@@ -1,6 +1,6 @@
 # temporary
-alias pointceptdatasync='rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/'
-alias segdatasync='rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/data/ /home/maccou/work/3d/3d_segmentation/data/'
+alias segdatasync="rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/data /home/maccou/work/3d/3d_segmentation/data"
+alias pointceptdatasync="rsync -av --delete --include 'sheet_metal_sample/' --include 'sheet_metal_sample/test/***' --exclude '*' maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/"
 alias expsync="rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp"
 
 
@@ -51,18 +51,6 @@ alias codefzf='code $(fzf --preview="cat {}")'
 alias fzfp='fzf --preview="cat {}"'
 alias rsync="rsync -av --info=progress2 --exclude='.git'"
 
-
-# Function to count the number of lines in a file or command output
-lc() {
-    if [ -f "$1" ]; then
-        # If argument is a file, count lines in the file
-        wc -l < "$1"
-    else
-        # Otherwise, count lines in the output of the command
-        "$@" | wc -l
-    fi
-}
-
 # aliases from https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/common-aliases
 # ls, the common ones I use a lot shortened for rapid fire usage
 alias l='ls -lFh'     #size,show type,human readable
@@ -89,6 +77,7 @@ alias -g T='| tail'
 alias -g G='| grep'
 alias -g L="| less"
 alias -g M="| most"
+alias -g N="| wc -l"
 alias -g LL="2>&1 | less"
 alias -g CA="2>&1 | cat -A"
 alias -g NE="2> /dev/null"

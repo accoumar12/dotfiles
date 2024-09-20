@@ -1,5 +1,3 @@
-zmodload zsh/zprof
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -9,7 +7,9 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
+
+# Needed to use the latex extension for vscode.
+export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -172,6 +172,9 @@ setopt HIST_REDUCE_BLANKS    # Remove superfluous blanks from each command line 
 HIST_STAMPS="yyyy-mm-dd"
 
 bindkey '^R' fzf_history_search
+
+# Bind / to fzf_history_search in vi command (normal) mode
+bindkey -M vicmd '/' fzf_history_search
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
