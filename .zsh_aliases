@@ -1,8 +1,9 @@
 # temporary
 alias segdatasync="rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/data /home/maccou/work/3d/3d_segmentation/data"
-alias pointceptdatasync="rsync -av --delete --include 'sheet_metal_sample/' --include 'sheet_metal_sample/test/***' --exclude '*' maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/"
+alias pointceptdatasync="rsync -av --delete --include 'sheet_metal/' --include 'sheet_metal/test/***' --exclude '*' maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/"
 alias expsync="rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp"
 
+alias scp='rsync -Pravdtze ssh'
 
 ## Use a long listing format ##
 alias ll='ls -la'
@@ -139,3 +140,7 @@ fi
 
 # Make zsh know about hosts already accessed by SSH
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+
+git_clean_branches() {
+  git branch | grep -v "develop" | grep -v "master" | grep -v "main" | xargs git branch -D
+}
