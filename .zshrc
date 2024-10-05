@@ -8,6 +8,8 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export PATH="$HOME/tools/nvim/bin:$PATH"
+
 # Needed to use the latex extension for vscode.
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
@@ -191,3 +193,5 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/maccou/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
+export MANPATH=$HOME/tools/ripgrep/doc/man:$MANPATH
+export FPATH=$HOME/tools/ripgrep/complete:$FPATH

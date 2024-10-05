@@ -5,6 +5,8 @@ alias expsync="rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3d_se
 
 alias scp='rsync -Pravdtze ssh'
 
+alias n='nvim'
+
 ## Use a long listing format ##
 alias ll='ls -la'
 ## get rid of command not found ##
