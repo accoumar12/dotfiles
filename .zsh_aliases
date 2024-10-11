@@ -8,7 +8,7 @@ alias scp='rsync -Pravdtze ssh'
 alias n='nvim'
 
 ## Use a long listing format ##
-alias ll='ls -la'
+alias ls='ls --color'
 ## get rid of command not found ##
 alias cd..='cd ..'
 
@@ -68,7 +68,7 @@ alias lrt='ls -1Fcrt'
 alias lsr='ls -lARFh' #Recursive list of files and directories
 alias lsn='ls -1'     #A column contains name of files and directories
 
-alias zshrc='vim ~/.zshrc' # Quick access to the .zshrc file
+alias zshrc='${EDITOR} ~/.zshrc' # Quick access to the .zshrc file
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
