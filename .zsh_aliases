@@ -3,6 +3,7 @@ alias segdatasync="rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3
 alias pointceptdatasync="rsync -av --delete --include 'sheet_metal/' --include 'sheet_metal/test/***' --exclude '*' maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/data/"
 alias expsync="rsync -av --delete maccou@192.168.0.54:/home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp/ /home/maccou/work/3d/3d_segmentation/repos/Pointcept/exp"
 
+alias rsync="rsync -av --info=progress2 --exclude='.git'"
 alias scp='rsync -Pravdtze ssh'
 
 alias n='nvim'
@@ -38,7 +39,6 @@ alias update='sudo apt-get update && sudo apt-get upgrade'
 alias su='sudo -i'
 alias grep='grep --color=auto'
 alias df='df -h'
-alias reload='exec zsh'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mv='mv -i'
@@ -52,7 +52,6 @@ alias gac='f() { git add -A; git commit -m "$1" };f'
 
 alias codefzf='code $(fzf --preview="cat {}")'
 alias fzfp='fzf --preview="cat {}"'
-alias rsync="rsync -av --info=progress2 --exclude='.git'"
 
 # aliases from https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/common-aliases
 # ls, the common ones I use a lot shortened for rapid fire usage
@@ -78,10 +77,9 @@ alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 alias -g H='| head'
 alias -g T='| tail'
 alias -g G='| grep'
-alias -g L="| less"
 alias -g M="| most"
 alias -g N="| wc -l"
-alias -g LL="2>&1 | less"
+alias -g L="2>&1 | less"
 alias -g CA="2>&1 | cat -A"
 alias -g NE="2> /dev/null"
 alias -g NUL="> /dev/null 2>&1"
@@ -114,7 +112,7 @@ if is-at-least 4.2.0; then
     for ft in $_browser_fts; do alias -s $ft='$BROWSER'; done
   fi
 
-  _editor_fts=(cpp cxx cc c hh h inl asc txt TXT tex)
+  _editor_fts=(md cpp cxx cc c hh h inl asc txt TXT tex)
   for ft in $_editor_fts; do alias -s $ft='$EDITOR'; done
 
   if [[ -n "$XIVIEWER" ]]; then
