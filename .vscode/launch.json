@@ -1,7 +1,6 @@
 {
     "version": "0.2.0",
     "configurations": [
-
         {
             "name": "Python Debugger",
             "type": "debugpy",
@@ -50,29 +49,41 @@
             }
         },
         {
-        "name": "Python: Pytest",
-        "type": "debugpy",
-        "request": "launch",
-        "module": "pytest",
-        "justMyCode": true,
-        "args": [
-            "-s",
-            "${file}"
-        ],
+            "name": "Python: Pytest",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "justMyCode": true,
+            "args": [
+                "-s",
+                "${file}"
+            ],
         },
         {
-        "name": "Python: Pytest with env variable",
-        "type": "debugpy",
-        "request": "launch",
-        "module": "pytest",
-        // "justMyCode": false,
-        "args": [
-            "-s",
-            "${file}"
-        ],
-        "env": {
-            "CUDA_VISIBLE_DEVICES": "1"
-        }
+            "name": "Python: Pytest with env variable",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            // "justMyCode": false,
+            "args": [
+                "-s",
+                "${file}"
+            ],
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "1"
+            }
+        },
+        {
+            "name": "Python: Debug Tests in Folder",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "cwd": "${workspaceFolder}", 
+            "args": [
+                "./tests/fast"
+            ], 
+            "justMyCode": false, 
+            "console": "integratedTerminal" 
         }
     ]
 }

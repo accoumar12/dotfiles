@@ -1,3 +1,5 @@
+export STP_PATH="/home/maccou/work/3d/data/3D/stp"
+
 export PATH="$HOME/tools/nvim/bin:$PATH"
 
 # For zoxide.
