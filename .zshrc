@@ -84,7 +84,7 @@ eval "$(starship init zsh)"
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
-bindkey '$' autosuggest-accept
+bindkey ']' autosuggest-accept
 bindkey -v
 
 zle_highlight+=(paste:none)
