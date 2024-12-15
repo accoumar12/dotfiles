@@ -8,6 +8,34 @@ gitignore-path := "$HOME/dotfiles/git/gitignore"
 @_default:
     just --list
 
+# Create a new library with src layout. Used for packaging.
+[no-cd]
+@new-library name=project-name:
+    mkdir {{ name }}
+    just _bootstrap library {{ name }}
+    cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow
+    cp {{ gitignore-path }} {{ name }}/.gitignore
+
+# Create a new application. Useful for web apps, scripts, or CLIs.
+[no-cd]
+@new-app name=project-name:
+    mkdir {{ name }}
+    just _bootstrap app {{ name }}
+    cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow
+    cp {{ gitignore-path }} {{ name }}/.gitignore
+
+# Bootstrap a new project.
+[no-cd]
+_bootstrap type project:
+    #!/bin/bash
+    set -euxo pipefail
+    if command -v uv &> /dev/null; then 
+        just _uv-init {{ type }} {{ project }} 
+    else 
+        echo "Installing UV"
+        just _install-uv
+        just _uv-init {{ type }} {{ project }} 
+    fi
 
 # Creates a project with or without src layout based on uv init command.
 [no-cd]
@@ -24,7 +52,6 @@ _uv-init type project:
         rm "$PROJECT_NAME"/hello.py
     fi
 
-
 [no-cd]
 @_install-uv:
     python -m pip install \
@@ -32,33 +59,3 @@ _uv-init type project:
                 --no-compile \
                 --upgrade \
             pip uv
-
-
-# Create a new library with src layout. Used for packaging.
-[no-cd]
-@new-library name=project-name:
-    mkdir {{ name }}
-    just bootstrap library {{ name }}
-    cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow
-    cp {{ gitignore-path }} {{ name }}/.gitignore
-
-# Create a new application. Useful for web apps, scripts, or CLIs.
-[no-cd]
-@new-app name=project-name:
-    mkdir {{ name }}
-    just bootstrap app {{ name }}
-    cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow
-    cp {{ gitignore-path }} {{ name }}/.gitignore
-    
-# Bootstrap a new project.
-[no-cd]
-bootstrap type project:
-    #!/bin/bash
-    set -euxo pipefail
-    if command -v uv &> /dev/null; then 
-        just _uv-init {{ type }} {{ project }}; 
-    else 
-        echo "Installing UV"
-        just _install-uv
-        just _uv-init {{ type }} {{ project }} 
-    fi
