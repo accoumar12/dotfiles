@@ -79,6 +79,7 @@ alias -g T='| tail'
 alias -g G='| grep'
 alias -g M="| most"
 alias -g N="| wc -l"
+alias -g V='| vim -'
 alias -g L="2>&1 | less"
 alias -g CA="2>&1 | cat -A"
 alias -g NE="2> /dev/null"

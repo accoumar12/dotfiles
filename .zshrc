@@ -122,3 +122,4 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(uv generate-shell-completion zsh)"
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+source <(just --completions zsh)
