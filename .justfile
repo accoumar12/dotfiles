@@ -63,15 +63,13 @@ _uv-init type project:
 
 # Retrieve the latest file created in the mirror remote directory.
 [no-cd]
-retrieve-latest-file user host:
+@retrieve-latest-file user host:
     #!/bin/bash
 
     REMOTE_USER="${user}"
     REMOTE_HOST="${host}"
-
-    echo $REMOTE_USER
-
     REMOTE_DIR=$(pwd)
+
     MOST_RECENT_FILE=$(ssh ${REMOTE_USER}@${REMOTE_HOST} "ls -t ${REMOTE_DIR} | head -n 1")
 
     if [ -z "$MOST_RECENT_FILE" ]; then
