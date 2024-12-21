@@ -24,6 +24,9 @@ gitignore-path := "$HOME/dotfiles/git/gitignore"
     cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow
     cp {{ gitignore-path }} {{ name }}/.gitignore
 
+    echo "Installing UV"
+    just _install-uv
+
 # Bootstrap a new project.
 [no-cd]
 _bootstrap type project:
@@ -32,8 +35,6 @@ _bootstrap type project:
     if command -v uv &> /dev/null; then 
         just _uv-init {{ type }} {{ project }} 
     else 
-        echo "Installing UV"
-        just _install-uv
         just _uv-init {{ type }} {{ project }} 
     fi
 
@@ -59,3 +60,24 @@ _uv-init type project:
                 --no-compile \
                 --upgrade \
             pip uv
+
+# Retrieve the latest file created in the mirror remote directory.
+[no-cd]
+retrieve-latest-file user host:
+    #!/bin/bash
+
+    REMOTE_USER="${user}"
+    REMOTE_HOST="${host}"
+
+    echo $REMOTE_USER
+
+    REMOTE_DIR=$(pwd)
+    MOST_RECENT_FILE=$(ssh ${REMOTE_USER}@${REMOTE_HOST} "ls -t ${REMOTE_DIR} | head -n 1")
+
+    if [ -z "$MOST_RECENT_FILE" ]; then
+    echo "No files found in the remote directory."
+    exit 1
+    fi
+
+    scp -v ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}/${MOST_RECENT_FILE} .
+
