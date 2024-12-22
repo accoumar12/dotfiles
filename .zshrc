@@ -73,6 +73,7 @@ autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 # Prompt
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
 
 # Keybindings
