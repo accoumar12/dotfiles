@@ -4,7 +4,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # Needed to use the latex extension for vscode.
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
-# To launch vscode from cli.
+# To launch vscode from cli in wsl.
 export PATH="/mnt/c/Users/maccou/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
 
 # For uv.
