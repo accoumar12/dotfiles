@@ -1,8 +1,4 @@
-export STP_PATH="/home/maccou/work/3d/data/3D/stp"
-
-export PATH="$HOME/tools/nvim/bin:$PATH"
-
-# For zoxide.
+export PATH="$HOME/tools/nvim/bin:$PATH" # For zoxide.
 export PATH="$HOME/.local/bin:$PATH"
 
 # Needed to use the latex extension for vscode.
@@ -15,7 +11,6 @@ export PATH="/mnt/c/Users/maccou/AppData/Local/Programs/Microsoft VS Code/bin:$P
 source "$HOME/.cargo/env"
 
 export POETRY_VIRTUALENVS_IN_PROJECT=true
-export PYTHONPATH="${PYTHONPATH}:/home/maccou/work/3d/3d-analytics"
 
 __conda_setup="$('/home/maccou/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
