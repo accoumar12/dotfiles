@@ -79,3 +79,21 @@ _uv-init type project:
 
     scp -v ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}/${MOST_RECENT_FILE} .
 
+# Sync the current directory with the remote directory or vice versa.
+[no-cd]
+@sync user host direction="down":
+    #!/bin/bash
+
+    REMOTE_USER="${user}"
+    REMOTE_HOST="${host}"
+    REMOTE_DIR=$(pwd)
+
+    if [ "${direction}" == "up" ]; then
+        rsync -avz . ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}
+    elif [ "${direction}" == "down" ]; then
+        rsync -avz ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}/ .
+    else
+        echo "Invalid direction. Use 'up' to sync to remote or 'down' to sync from remote."
+        exit 1
+    fi
+
