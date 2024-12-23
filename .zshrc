@@ -1,4 +1,6 @@
-export PATH="$HOME/tools/nvim/bin:$PATH" # For zoxide.
+export PATH="$HOME/tools/nvim/bin:$PATH" 
+
+# For zoxide.
 export PATH="$HOME/.local/bin:$PATH"
 
 # Needed to use the latex extension for vscode.
@@ -61,14 +63,19 @@ source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 # Add in snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
+# zinit snippet OMZP::archlinux
+# zinit snippet OMZP::aws
+# zinit snippet OMZP::kubectl
+# zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
-# Load completions
-autoload -Uz compinit && compinit
+# Avoid redundant generation of zcompdump
+autoload -Uz compinit
+if [[ ! -f ~/.zcompdump ]]; then
+  compinit
+else
+  compinit -C  # Use the cache without recomputing
+fi
 
 zinit cdreplay -q
 
@@ -116,6 +123,7 @@ source ~/.zsh_aliases
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(uv generate-shell-completion zsh)"
+
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 source <(just --completions zsh)

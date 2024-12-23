@@ -97,3 +97,7 @@ _uv-init type project:
         exit 1
     fi
 
+# Keep only main, master or develop branches.
+@clean_branches:
+    #!/bin/bash
+    git branch | grep -v "develop" | grep -v "master" | grep -v "main" | xargs git branch -D
