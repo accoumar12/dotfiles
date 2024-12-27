@@ -4,6 +4,7 @@
 	ac = commit -am
 	last = log -1 HEAD --stat
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  clean-branches = "!git branch | grep -v 'develop' | grep -v 'master' | grep -v 'main' | xargs git branch -D"
 [rerere]
 	enabled = true
 [column]
