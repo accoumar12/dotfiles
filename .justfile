@@ -2,7 +2,7 @@ set dotenv-load := false
 set export := true
 
 project-name := "new-project"
-gitignore-path := "$HOME/dotfiles/git/gitignore"
+gitignore-path := "$HOME/.config/git/gitignore"
 
 [no-cd]
 @_default:
@@ -11,6 +11,9 @@ gitignore-path := "$HOME/dotfiles/git/gitignore"
 # Create a new library with src layout. Used for packaging.
 [no-cd]
 @new-library name=project-name:
+    echo "Installing UV"
+    just _install-uv
+
     mkdir {{ name }}
     just _bootstrap library {{ name }}
     cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow
@@ -19,13 +22,13 @@ gitignore-path := "$HOME/dotfiles/git/gitignore"
 # Create a new application. Useful for web apps, scripts, or CLIs.
 [no-cd]
 @new-app name=project-name:
+    echo "Installing UV"
+    just _install-uv
+
     mkdir {{ name }}
     just _bootstrap app {{ name }}
     cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow
     cp {{ gitignore-path }} {{ name }}/.gitignore
-
-    echo "Installing UV"
-    just _install-uv
 
 # Bootstrap a new project.
 [no-cd]
@@ -37,6 +40,18 @@ _bootstrap type project:
     else 
         just _uv-init {{ type }} {{ project }} 
     fi
+
+# Convert a classical git repo to a bare repo.
+[no-cd]
+repo-to-bare folder:
+    #!/bin/bash
+
+    cd {{folder}}
+    mv .git ../{{folder}}.git
+    cd ..
+    rm -rf {{folder}}
+    cd {{folder}}.git
+    git config --bool core.bare true
 
 # Creates a project with or without src layout based on uv init command.
 [no-cd]
