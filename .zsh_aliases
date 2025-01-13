@@ -27,8 +27,7 @@ alias h='history'
 alias c='clear'
 alias path='echo -e ${PATH//:/\\n}'
 alias now='date +"%T"'
-alias nowtime=now
-alias nowdate='date +"%d-%m-%Y"'
+alias w="wslview"
 # update on one command
 alias update='sudo apt-get update && sudo apt-get upgrade'
 alias su='sudo -i'
@@ -44,6 +43,7 @@ alias du1='du -h -d 1'
 alias weather='function _weather() { curl wttr.in/$1; }; _weather'
 alias p='python'
 alias gac='f() { git add -A; git commit -m "$1" };f'
+alias gae='f() { git add -A; git commit -m "." };f'
 
 alias codefzf='code $(fzf --preview="cat {}")'
 alias fzfp='fzf --preview="cat {}"'
