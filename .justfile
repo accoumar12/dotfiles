@@ -111,3 +111,25 @@ _uv-init type project:
         echo "Invalid direction. Use 'up' to sync to remote or 'down' to sync from remote."
         exit 1
     fi
+
+# Open the latest file in the current repository
+[no-cd]
+@open-latest:
+    #!/bin/bash
+    LATEST_FILE=$(ls -t | head -n 1)
+    if [ -z "$LATEST_FILE" ]; then
+        echo "No files found in the current directory."
+        exit 1
+    fi
+    
+    if grep -q microsoft /proc/version; then
+        # WSL environment
+        wslview "$LATEST_FILE"
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        # macOS environment
+        open "$LATEST_FILE"
+    else
+        # Linux environment
+        xdg-open "$LATEST_FILE"
+    fi
+
