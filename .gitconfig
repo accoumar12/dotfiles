@@ -1,18 +1,40 @@
-[user] email = martin.accou@icloud.com
+[user] 
+	email = martin.accou@icloud.com
 	name = Martin Accou
 [alias]
 	ac = commit -am
 	last = log -1 HEAD --stat
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
-  clean-branches = "!git branch | grep -v 'develop' | grep -v 'master' | grep -v 'main' | xargs git branch -D"
+	clean-branches = "!git branch | grep -v 'develop' | grep -v 'master' | grep -v 'main' | xargs git branch -D"
+[commit]
+	verbose = true
 [rerere]
 	enabled = true
+	autoupdate = true
 [column]
 	ui = auto
 [branch]
 	sort = -committerdate
+[tag]
+	sort = version:refname
 [pull]
 	rebase = true
+[rebase]
+    autoSquash = true
+    autoStash = true
+    updateRefs = true
+[merge]
+	conflictstyle = zdiff3
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[help]
+	autocorrect = prompt
 [init]
 	defaultBranch = main
 [filter "lfs"]
@@ -23,4 +45,8 @@
 [http]
 	sslVerify = false
 [checkout]
-  defaultRemote = origin
+	defaultRemote = origin
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
