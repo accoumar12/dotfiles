@@ -18,3 +18,7 @@ For [glazewm](https://github.com/glzr-io/glazewm), also add a startup shortcut:
 ```
 
 Adding some features to the config, such as automoving the browser tabs to the appropriate workspace, makes the os buggy...
+
+## Linux settings
+
+For kanata, follow [this guide](https://github.com/jtroo/kanata/discussions/130)
