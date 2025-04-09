@@ -113,7 +113,7 @@ _uv-init type project:
     fi
 
 # Open the latest file in the current repository
-[no-cd]
+[no-cd] 
 @open-latest:
     #!/bin/bash
     LATEST_FILE=$(ls -t | head -n 1)
@@ -133,3 +133,7 @@ _uv-init type project:
         xdg-open "$LATEST_FILE"
     fi
 
+[no-cd]
+@restore-and-unstage branch filepath:
+    git checkout {{ branch }} -- {{ filepath }}
+    git restore --staged {{ filepath }}
