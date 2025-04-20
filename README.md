@@ -2,6 +2,8 @@
 
 ## Windows settings
 
+### Kanata
+
 For [kanata](https://github.com/jtroo/kanata), add a command to be run at startup:
 
 ```powershell
@@ -9,6 +11,8 @@ C:\Windows\System32\conhost.exe `
 --headless "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\kanata\kanata.exe" `
 --cfg "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\kanata\kanata.kbd"
 ```
+
+### GlazeWM
 
 For [glazewm](https://github.com/glzr-io/glazewm), also add a startup shortcut:
 
@@ -18,6 +22,12 @@ For [glazewm](https://github.com/glzr-io/glazewm), also add a startup shortcut:
 ```
 
 Adding some features to the config, such as automoving the browser tabs to the appropriate workspace, makes the os buggy...
+
+### Keyboard layout
+
+Easily cycle between keyboard layouts using Windows key + space.
+
+### Misc
 
 In the apps that launch at startup, add at least kanata and GlazeWM.
 
