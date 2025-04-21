@@ -6,6 +6,7 @@
 	last = log -1 HEAD --stat
 	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	clean-branches = "!git branch | grep -v 'develop' | grep -v 'master' | grep -v 'main' | xargs git branch -D"
+	show-tags = "log --tags --no-walk --pretty='%h %d %s' --decorate"
 [commit]
 	verbose = true
 [rerere]
