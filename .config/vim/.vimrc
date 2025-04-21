@@ -103,3 +103,7 @@ let g:solarized_termtrans=1
 " in ~/.vim/colors/ and uncomment:
 " colorscheme solarized
 
+" Better macro execution
+nnoremap Q q
+nnoremap q @q
+

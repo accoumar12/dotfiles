@@ -9,6 +9,9 @@ export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 # To launch vscode from cli in wsl.
 export PATH="/mnt/c/Users/maccou/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
 
+# For sqlc.
+export PATH="/snap/bin:$PATH"
+
 # For uv.
 source "$HOME/.cargo/env"
 

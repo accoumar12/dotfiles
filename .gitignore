@@ -1,3 +1,7 @@
 .config/github-copilot
 .config/tmux/plugins
 .config/sciagraph
+.config/gatsby
+.config/vscode-sqltools
+.config/fltk.org
+.config/zoo
