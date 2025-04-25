@@ -137,3 +137,132 @@ _uv-init type project:
 @restore-and-unstage branch filepath:
     git checkout {{ branch }} -- {{ filepath }}
     git restore --staged {{ filepath }}
+
+[no-cd]
+@export-cads-to-csv :
+    #!/usr/bin/env -S uv run --script
+
+    import json
+    import csv
+    import os
+    from pathlib import Path
+
+    def main():
+        json_file_path = Path('./cads.json')
+        csv_file_path = Path('./cads.csv')
+        
+        # Read the JSON file
+        try:
+            with open(json_file_path, 'r') as json_file:
+                cad_data = json.load(json_file)
+        except FileNotFoundError:
+            print(f"Error: Could not find {json_file_path}")
+            return
+        except json.JSONDecodeError:
+            print(f"Error: Invalid JSON format in {json_file_path}")
+            return
+        
+        # Extract manufacturer and part number from each file path
+        csv_data = []
+        for file_path in cad_data:
+            parts = file_path.split('/')
+            if len(parts) >= 2:
+                manufacturer = parts[0]
+                # Extract part number by removing file extension
+                part_number = os.path.splitext(parts[1])[0]
+                csv_data.append([manufacturer, part_number])
+        
+        # Write to CSV file
+        try:
+            with open(csv_file_path, 'w', newline='') as csv_file:
+                # Configure CSV writer to quote all fields
+                csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
+                # Write header
+                csv_writer.writerow(['manufacturer', 'pn'])
+                # Write data rows
+                csv_writer.writerows(csv_data)
+            
+            print(f"Successfully created CSV file: {csv_file_path}")
+            print(f"Exported {len(csv_data)} records")
+        except Exception as e:
+            print(f"Error writing to CSV file: {e}")
+
+    if __name__ == "__main__":
+        main()
+
+[no-cd]
+@list-stp-by-size csv_file="./cads.csv":
+    #!/usr/bin/env -S uv run --script
+
+    import csv
+    import os
+    from pathlib import Path
+    import sys
+
+    def main():
+        csv_file_path = Path("{{csv_file}}")
+        stp_base_dir = Path("/home/maccou/work/3d/data/3D/stp")
+        
+        if not csv_file_path.exists():
+            print(f"Error: CSV file {csv_file_path} not found.")
+            return
+            
+        if not stp_base_dir.exists():
+            print(f"Error: STP base directory {stp_base_dir} not found.")
+            return
+            
+        # Read the CSV file
+        file_info = []
+        try:
+            with open(csv_file_path, 'r', newline='') as f:
+                reader = csv.reader(f)
+                # Skip header
+                next(reader, None)
+                
+                for row in reader:
+                    if len(row) >= 2:
+                        manufacturer = row[0].strip('"')
+                        part_number = row[1].strip('"')
+                        
+                        # Check for both .stp and .STP extensions
+                        potential_paths = [
+                            stp_base_dir / manufacturer / f"{part_number}.stp",
+                            stp_base_dir / manufacturer / f"{part_number}.STP"
+                        ]
+                        
+                        for file_path in potential_paths:
+                            if file_path.exists():
+                                size = file_path.stat().st_size
+                                file_info.append((file_path, size))
+                                break
+                        
+        except Exception as e:
+            print(f"Error reading CSV file: {e}")
+            return
+            
+        if not file_info:
+            print("No matching STP files found.")
+            return
+            
+        file_info.sort(key=lambda x: -x[1])
+        
+        # Print files with their sizes
+        print("\nSTP Files sorted by size (smallest to largest):\n")
+        print(f"{'File Path':<60} {'Size':<15}")
+        print("-" * 75)
+        
+        for file_path, size in file_info:
+            size_str = format_size(size)
+            print(f"{str(file_path):<60} {size_str:<15}")
+            
+        print(f"\nTotal files: {len(file_info)}")
+        
+    def format_size(size_bytes):
+        """Format file size in human-readable format"""
+        for unit in ['B', 'KB', 'MB', 'GB']:
+            if size_bytes < 1024 or unit == 'GB':
+                return f"{size_bytes:.2f} {unit}"
+            size_bytes /= 1024
+
+    if __name__ == "__main__":
+        main()
