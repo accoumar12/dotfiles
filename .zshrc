@@ -13,7 +13,7 @@ export PATH="/mnt/c/Users/maccou/AppData/Local/Programs/Microsoft VS Code/bin:$P
 export PATH="/snap/bin:$PATH"
 
 # For uv.
-source "$HOME/.cargo/env"
+# source "$HOME/.cargo/env"
 
 export POETRY_VIRTUALENVS_IN_PROJECT=true
 
@@ -124,10 +124,12 @@ source ~/.zsh_aliases
 
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(uv generate-shell-completion zsh)"
 
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+#source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source <(just --completions zsh)
 eval "$(direnv hook zsh)" 
+
