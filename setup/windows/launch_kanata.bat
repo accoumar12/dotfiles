@@ -1,0 +1,2 @@
+@echo off
+start "" "C:\Windows\System32\conhost.exe" --headless "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\kanata\kanata.exe" --cfg "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\kanata\kanata.kbd"
