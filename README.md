@@ -29,7 +29,7 @@ Easily cycle between keyboard layouts using Windows key + space.
 
 ### Misc
 
-In the apps that launch at startup, add at least kanata and GlazeWM.
+In the apps that launch at startup, add at least kanata and GlazeWM. To do so, press Win + R to open the Run dialog, and type shell:startup.
 
 ## Linux settings
 
