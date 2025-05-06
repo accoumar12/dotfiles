@@ -128,7 +128,6 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(uv generate-shell-completion zsh)"
 
 # Set up fzf key bindings and fuzzy completion
-#source <(fzf --zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source <(just --completions zsh)
 eval "$(direnv hook zsh)" 
