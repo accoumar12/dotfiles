@@ -124,11 +124,11 @@ source ~/.zsh_aliases
 
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(uv generate-shell-completion zsh)"
 
 # Set up fzf key bindings and fuzzy completion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh) # Make sure to have a recent fzf version
 source <(just --completions zsh)
 eval "$(direnv hook zsh)" 
 
