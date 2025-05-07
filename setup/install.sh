@@ -63,6 +63,9 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 echo "Installing just..."
 $PKG_INSTALL just
 
+echo "Installing micro-mamba..."
+"${SHELL}" <(curl -L micro.mamba.pm/install.sh)
+
 # Apply dotfiles using stow
 echo "Setting up dotfiles with stow..."
 cd "$DOTFILES_DIR"
