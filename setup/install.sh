@@ -66,6 +66,9 @@ $PKG_INSTALL just
 echo "Installing micro-mamba..."
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 
+echo "Installing nvm"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
 # Apply dotfiles using stow
 echo "Setting up dotfiles with stow..."
 cd "$DOTFILES_DIR"
