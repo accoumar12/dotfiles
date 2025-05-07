@@ -1,3 +1,4 @@
+#!/usr/bin/env -S uv run --script
 from pathlib import Path
 
 

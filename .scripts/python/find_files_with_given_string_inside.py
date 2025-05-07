@@ -1,3 +1,4 @@
+#!/usr/bin/env -S uv run --script
 from __future__ import annotations
 
 from pathlib import Path

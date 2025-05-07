@@ -1,3 +1,4 @@
+#!/usr/bin/env -S uv run --script
 import json
 
 # Define the input and output file names

@@ -1,3 +1,4 @@
+#!/usr/bin/env -S uv run --script
 import shutil
 from pathlib import Path
 
