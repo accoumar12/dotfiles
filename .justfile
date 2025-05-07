@@ -94,6 +94,63 @@ _uv-init type project:
 
     scp -v ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}/${MOST_RECENT_FILE} .
 
+# Sync files from a text file with a remote host (faster version using the current directory)
+[no-cd]
+@sync-files user host direction="down" file_list="files.txt":
+    #!/usr/bin/env bash
+    
+    REMOTE_USER="${user}"
+    REMOTE_HOST="${host}"
+    REMOTE_DIR=$(pwd)
+    LOCAL_DIR=$(pwd)
+    FILE_LIST="${file_list}"
+    TEMP_FILE=$(mktemp)
+    
+    # Verify the file list exists
+    if [ ! -f "${FILE_LIST}" ]; then
+        echo "Error: ${FILE_LIST} not found in the current directory."
+        exit 1
+    fi
+    
+    while IFS= read -r line || [[ -n "$line" ]]; do
+        # Skip empty lines and comments
+        [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
+        # Trim leading and trailing whitespace but preserve the line
+        trimmed_line=$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+        echo "$trimmed_line" >> "${TEMP_FILE}"
+    done < "${FILE_LIST}"
+    
+    if [ ! -s "${TEMP_FILE}" ]; then
+        echo "Error: No valid file entries found in ${FILE_LIST} after filtering."
+        rm "${TEMP_FILE}"
+        exit 1
+    fi
+    
+    # Count the number of files to transfer
+    FILE_COUNT=$(wc -l < "${TEMP_FILE}")
+    echo "Preparing to sync ${FILE_COUNT} files..."
+    
+    if [ "${direction}" == "up" ]; then
+        echo "Uploading files to ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}"
+        # Create remote directory if it doesn't exist
+        ssh "${REMOTE_USER}@${REMOTE_HOST}" "mkdir -p \"${REMOTE_DIR}\""
+        # Use rsync with --files-from to transfer all files at once
+        rsync -avz --progress --files-from="${TEMP_FILE}" "${LOCAL_DIR}/" "${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}/"
+    elif [ "${direction}" == "down" ]; then
+        echo "Downloading files from ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}"
+        # Use rsync with --files-from to transfer all files at once
+        rsync -avz --progress --files-from="${TEMP_FILE}" "${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}/" "${LOCAL_DIR}/"
+    else
+        echo "Invalid direction. Use 'up' to sync to remote or 'down' to sync from remote."
+        rm "${TEMP_FILE}"
+        exit 1
+    fi
+    
+    # Clean up
+    rm "${TEMP_FILE}"
+    
+    echo "File sync completed successfully."
+
 # Sync the current directory with the remote directory or vice versa.
 [no-cd]
 @sync user host direction="down":
