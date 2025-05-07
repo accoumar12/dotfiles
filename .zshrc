@@ -65,7 +65,7 @@ source ~/.config/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
 # Add in snippets
 zinit snippet OMZP::git
-zinit snippet OMZP::sudo
+# zinit snippet OMZP::sudo
 # zinit snippet OMZP::archlinux
 # zinit snippet OMZP::aws
 # zinit snippet OMZP::kubectl
