@@ -63,6 +63,11 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 echo "Installing just..."
 $PKG_INSTALL just
 
+# Install btop
+echo "Installing htop and btop..."
+$PKG_INSTALL htop
+$PKG_INSTALL btop
+
 echo "Installing micro-mamba..."
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
 
