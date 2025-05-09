@@ -6,7 +6,7 @@ from pathlib import Path
 import sys
 
 def main():
-    csv_file_path = Path("{{csv_file}}")
+    csv_file_path = Path('./cads.csv')
     stp_base_dir = Path("/home/maccou/work/3d/data/3D/stp")
     
     if not csv_file_path.exists():
