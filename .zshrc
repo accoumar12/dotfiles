@@ -62,6 +62,8 @@ zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 zinit light kutsan/zsh-system-clipboard
 
 source ~/.config/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+# Does not work
+# source ~/.config/.zsh/zsh_vi_search.zsh
 
 # Add in snippets
 zinit snippet OMZP::git
