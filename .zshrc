@@ -122,6 +122,9 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 source ~/.zsh_aliases
 
+# Enable extended globbing
+setopt extendedglob
+
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
