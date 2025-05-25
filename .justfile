@@ -70,11 +70,7 @@ _uv-init type project:
 
 [no-cd]
 @_install-uv:
-    python -m pip install \
-                --disable-pip-version-check \
-                --no-compile \
-                --upgrade \
-            pip uv
+    curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Retrieve the latest file created in the mirror remote directory.
 [no-cd]
