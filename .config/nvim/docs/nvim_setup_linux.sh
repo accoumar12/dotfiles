@@ -9,9 +9,7 @@ PYTHON_INSTALLED=true
 # by the system, or you have already installed Python under your HOME.
 SYSTEM_PYTHON=false
 
-# If SYSTEM_PYTHON is false, we need to decide whether to install
-# Anaconda (INSTALL_ANACONDA=true) or Miniconda (INSTALL_ANACONDA=false)
-INSTALL_ANACONDA=false
+INSTALL_UV=true
 
 # Whether to add the path of the installed executables to system PATH
 ADD_TO_SYSTEM_PATH=true
@@ -29,39 +27,17 @@ if [[ ! -d "$HOME/tools/" ]]; then
 fi
 
 #######################################################################
-#                    Anaconda or miniconda install                    #
+#                    UV install                                       #
 #######################################################################
-if [[ "$INSTALL_ANACONDA" = true ]]; then
-    CONDA_DIR=$HOME/tools/anaconda
-    CONDA_NAME=Anaconda.sh
-    CONDA_LINK="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2021.11-Linux-x86_64.sh"
-else
-    CONDA_DIR=$HOME/tools/miniconda
-    CONDA_NAME=Miniconda.sh
-    CONDA_LINK="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_4.10.3-Linux-x86_64.sh"
+if [[ "$INSTALL_UV" = true ]]; then
+    echo "Installing UV"
+    curl -LsSf https://astral.sh/uv/install.sh | sh
 fi
 
 if [[ ! "$PYTHON_INSTALLED" = true ]]; then
     echo "Installing Python in user HOME"
 
     SYSTEM_PYTHON=false
-
-    echo "Downloading and installing conda"
-
-    if [[ ! -f "$HOME/packages/$CONDA_NAME" ]]; then
-        curl -Lo "$HOME/packages/$CONDA_NAME" $CONDA_LINK
-    fi
-
-    # Install conda silently
-    if [[ -d $CONDA_DIR ]]; then
-        rm -rf "$CONDA_DIR"
-    fi
-    bash "$HOME/packages/$CONDA_NAME" -b -p "$CONDA_DIR"
-
-    # Setting up environment variables
-    if [[ "$ADD_TO_SYSTEM_PATH" = true ]] && [[ "$USE_BASH_SHELL" = true ]]; then
-        echo "export PATH=\"$CONDA_DIR/bin:\$PATH\"" >> "$HOME/.bash_profile"
-    fi
 else
     echo "Python is already installed. Skip installing it."
 fi
@@ -82,7 +58,7 @@ if [[ "$SYSTEM_PYTHON" = true ]]; then
 else
     echo "Using custom Python to install $(PY_PACKAGES)"
     for p in "${PY_PACKAGES[@]}"; do
-        "$CONDA_DIR/bin/pip" install "$p"
+        uv run pip install "$p"
     done
 fi
 

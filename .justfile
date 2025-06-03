@@ -65,7 +65,6 @@ _uv-init type project:
         uv init --lib "$PROJECT_NAME"
     else
         uv init --app "$PROJECT_NAME"
-        rm "$PROJECT_NAME"/hello.py
     fi
 
 [no-cd]

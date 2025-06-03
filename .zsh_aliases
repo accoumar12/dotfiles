@@ -44,6 +44,7 @@ alias weather='function _weather() { curl wttr.in/$1; }; _weather'
 alias p='python'
 alias gac='f() { git add -A; git commit -m "$1" };f'
 alias gae='f() { git add -A; git commit -m "." };f'
+alias o='code .'
 
 alias codefzf='code $(fzf --preview="cat {}")'
 alias fzfp='fzf --preview="cat {}"'
