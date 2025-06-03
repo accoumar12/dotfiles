@@ -4,6 +4,7 @@ set export := true
 project-name := "new-project"
 gitignore-path := "$HOME/.config/git/gitignore"
 
+# The no-cd directive prevents changing the current working directory when running commands.
 [no-cd]
 @_default:
     just --list
@@ -16,8 +17,13 @@ gitignore-path := "$HOME/.config/git/gitignore"
 
     mkdir {{ name }}
     just _bootstrap library {{ name }}
-    cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow
+    cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow && git add . && git commit -m "Initial commit"
+
+    # Strange behaviour here.
+    echo "Current directory: $(pwd)"
     cp {{ gitignore-path }} {{ name }}/.gitignore
+
+    just repo-to-bare {{ name }}
 
 # Create a new application. Useful for web apps, scripts, or CLIs.
 [no-cd]
@@ -27,8 +33,10 @@ gitignore-path := "$HOME/.config/git/gitignore"
 
     mkdir {{ name }}
     just _bootstrap app {{ name }}
-    cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow
+    cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow && git add . && git commit -m "Initial commit"
     cp {{ gitignore-path }} {{ name }}/.gitignore
+
+    just repo-to-bare {{ name }}
 
 # Bootstrap a new project.
 [no-cd]
