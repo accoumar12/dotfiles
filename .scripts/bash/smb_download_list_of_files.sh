@@ -8,6 +8,6 @@ PASSWORD="Nautilus12@"
 smbclient $SHARE -U $USER%$PASSWORD <<EOF
 cd 3D/stp/Airbus
 prompt
-$(while read -r file; do echo "mget $file"; done < files_to_download.txt)
+$(while read -r file; do echo "mget $file"; done < ./files_to_download.txt)
 quit
 EOF
