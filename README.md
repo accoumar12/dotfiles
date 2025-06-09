@@ -13,7 +13,7 @@ Adding some features to the config, such as automoving the browser tabs to the a
 
 ### Keyboard layout
 
-Easily cycle between keyboard layouts using Windows key + space.
+Easily cycle between keyboard layouts using Windows key + space. Deactivate in the settings to binding that uses Tab + Shift to achieve the same goal since it conflicts with i3 bindings.
 
 ### Windows terminal
 
