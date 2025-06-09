@@ -44,11 +44,7 @@ fi
 # Install required packages
 echo "Installing zsh, fzf, and other required packages..."
 if [ "$PKG_MANAGER" = "apt" ]; then
-    $PKG_INSTALL zsh fzf python3 python3-pip
-elif [ "$PKG_MANAGER" = "dnf" ]; then
-    $PKG_INSTALL zsh fzf python3 python3-pip
-elif [ "$PKG_MANAGER" = "pacman" ]; then
-    $PKG_INSTALL zsh fzf python python-pip
+    $PKG_INSTALL zsh fzf tmux xclip python3 python3-pip
 fi
 
 # Install starship
@@ -68,8 +64,20 @@ echo "Installing htop and btop..."
 $PKG_INSTALL htop
 $PKG_INSTALL btop
 
+echo "Installing direnv..."
+curl -sfL https://direnv.net/install.sh | bash
+
+echo "Installing zoxide..."
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
 echo "Installing micro-mamba..."
 "${SHELL}" <(curl -L micro.mamba.pm/install.sh)
+
+echo "Installing Homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install with brew to have a recent version...
+brew install fzf
 
 echo "Installing nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
