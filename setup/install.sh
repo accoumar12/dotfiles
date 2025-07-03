@@ -79,9 +79,6 @@ echo "Installing Homebrew..."
 # Install with brew to have a recent version...
 brew install fzf
 
-echo "Installing nvm"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
-
 # Apply dotfiles using stow
 echo "Setting up dotfiles with stow..."
 cd "$DOTFILES_DIR"
