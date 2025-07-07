@@ -32,7 +32,7 @@ unset __conda_setup
 FNM_PATH="/home/maccou/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/maccou/.local/share/fnm:$PATH"
-  eval "`fnm env`"
+  eval "`fnm env --shell zsh`"
 fi
 export MANPATH=$HOME/tools/ripgrep/doc/man:$MANPATH
 export FPATH=$HOME/tools/ripgrep/complete:$FPATH
@@ -150,3 +150,6 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+# Bitwarden completions
+eval "$(bw completion --shell zsh); compdef _bw bw;"
