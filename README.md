@@ -35,6 +35,30 @@ Run the [installation script](../dotfiles/setup/install.sh).
 
 Follow [this guide](https://github.com/jtroo/kanata/discussions/130).
 
+I didn't want to fight with permissions and all that stuff, so I made a system-wide config (/lib/systemd/system/kanata.service) without the (it looks like) useless Environment entries:
+
+```bash
+[Unit]
+Description=Kanata keyboard remapper
+Documentation=https://github.com/jtroo/kanata
+
+[Service]
+Type=simple
+ExecStart=/home/user/.cargo/bin/kanata --cfg /home/user/.config/kanata/config-name.kbd
+Restart=never
+
+[Install]
+WantedBy=default.target
+```
+
+Also:
+
+```bash
+# sudo systemctl daemon-reload # maybe this will be required when changing the service file
+sudo systemctl start kanata
+sudo systemctl enable kanata
+```
+
 ### Misc
 
 Install VSCode, Chrome.
