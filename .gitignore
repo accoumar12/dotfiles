@@ -5,3 +5,23 @@
 .config/vscode-sqltools
 .config/fltk.org
 .config/zoo
+.config/.gsd-keyboard.settings-ported 
+.config/gnome-initial-setup-done      
+.config/pulse/                        
+.config/user-dirs.locale
+.config/Code/                         
+.config/google-chrome/                
+.config/systemd/                      
+.config/uv/
+.config /GNOME-xdg-terminals.list      
+.config/gtk-3.0/                      
+.config/tiling-assistant/             
+.config/xdg-terminals.list
+.config/dconf/                        
+.config/ibus/                         
+.config/ubuntu-xdg-terminals.list
+.config/evolution/                    
+.config/mimeapps.list                 
+.config/user-dirs.dirs
+.config/GNOME-xdg-terminals.list
+.config/fish
