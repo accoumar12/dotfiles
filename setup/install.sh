@@ -76,6 +76,8 @@ echo "Installing micro-mamba..."
 echo "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+exec zsh
+
 # Install with brew to have a recent version...
 brew install fzf
 
