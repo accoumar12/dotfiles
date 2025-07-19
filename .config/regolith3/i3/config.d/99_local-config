@@ -1,0 +1,5 @@
+assign [class="Gnome-terminal"] workspace $ws1
+
+assign [class="Google-chrome"] workspace $ws2
+
+assign [class="Code"] workspace $ws3

@@ -2,3 +2,6 @@ wm.mod: Mod1
 wm.alt: Mod4
 regolith.wallpaper.file: 
 regolith.wallpaper.color.primary: black
+regolith.lockscreen.wallpaper.file: 
+regolith.lockscreen.wallpaper.color.primary: black
+wm.bar.mode: hide
