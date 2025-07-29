@@ -107,3 +107,6 @@ let g:solarized_termtrans=1
 nnoremap Q q
 nnoremap q @q
 
+" Keep cursor vertically aligned
+:nnoremap k kzz
+:nnoremap j jzz

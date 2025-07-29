@@ -25,3 +25,5 @@
 .config/user-dirs.dirs
 .config/GNOME-xdg-terminals.list
 .config/fish
+.config/Ultralytics
+.config/vlc
