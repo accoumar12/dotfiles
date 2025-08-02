@@ -126,6 +126,8 @@ if is-at-least 4.2.0; then
   alias -s dvi=xdvi
   alias -s chm=xchm
   alias -s djvu=djview
+  
+  alias x=xdg-open 
 
   #list whats inside packed file
   alias -s zip="unzip -l"

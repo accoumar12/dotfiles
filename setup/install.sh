@@ -64,6 +64,10 @@ echo "Installing htop and btop..."
 $PKG_INSTALL htop
 $PKG_INSTALL btop
 
+# tmux plugin manager. Do not forget to install plugins with prefix + I.
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+tmux source ~/.config/tmux/tmux.conf 
+
 echo "Installing direnv..."
 curl -sfL https://direnv.net/install.sh | bash
 
