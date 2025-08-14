@@ -9,46 +9,6 @@ gitignore-path := "$HOME/.config/git/gitignore"
 @_default:
     just --list
 
-# Create a new library with src layout. Used for packaging.
-[no-cd]
-@new-library name=project-name:
-    echo "Installing UV"
-    just _install-uv
-
-    mkdir {{ name }}
-    just _bootstrap library {{ name }}
-    cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow && git add . && git commit -m "Initial commit"
-
-    # Strange behaviour here.
-    echo "Current directory: $(pwd)"
-    cp {{ gitignore-path }} {{ name }}/.gitignore
-
-    just repo-to-bare {{ name }}
-
-# Create a new application. Useful for web apps, scripts, or CLIs.
-[no-cd]
-@new-app name=project-name:
-    echo "Installing UV"
-    just _install-uv
-
-    mkdir {{ name }}
-    just _bootstrap app {{ name }}
-    cd {{ name }} && touch .envrc && echo "layout uv" >> .envrc && direnv allow && git add . && git commit -m "Initial commit"
-    cp {{ gitignore-path }} {{ name }}/.gitignore
-
-    just repo-to-bare {{ name }}
-
-# Bootstrap a new project.
-[no-cd]
-_bootstrap type project:
-    #!/bin/bash
-    set -euxo pipefail
-    if command -v uv &> /dev/null; then 
-        just _uv-init {{ type }} {{ project }} 
-    else 
-        just _uv-init {{ type }} {{ project }} 
-    fi
-
 # Convert a classical git repo to a bare repo.
 [no-cd]
 repo-to-bare folder:
@@ -60,20 +20,6 @@ repo-to-bare folder:
     rm -rf {{folder}}
     cd {{folder}}.git
     git config --bool core.bare true
-
-# Creates a project with or without src layout based on uv init command.
-[no-cd]
-_uv-init type project:
-    #!/bin/bash
-
-    TYPE="${type}"
-    PROJECT_NAME="$project"
-
-    if [ "$TYPE" == "library" ]; then
-        uv init --lib "$PROJECT_NAME"
-    else
-        uv init --app "$PROJECT_NAME"
-    fi
 
 [no-cd]
 @_install-uv:
