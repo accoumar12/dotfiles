@@ -1,18 +1,18 @@
-;; defsrc is still necessary
 (defcfg
   process-unmapped-keys yes
 )
 
+;; Define the keys that will be remapped.
 (defsrc
-  caps a s d f j k l ;
+  caps a s d f h j k l ;
 )
+
 (defvar
   tap-time 150
   hold-time 150
 )
 
 (defalias
-  escctrl (tap-hold 100 100 esc lctl)
   a (tap-hold $tap-time $hold-time a lmet)
   s (tap-hold $tap-time $hold-time s lalt)
   d (tap-hold $tap-time $hold-time d lsft)
@@ -21,8 +21,17 @@
   k (tap-hold $tap-time $hold-time k rsft)
   l (tap-hold $tap-time $hold-time l ralt)
   ; (tap-hold $tap-time $hold-time ; rmet)
+
+  ;; Make esc  switch to nav layer on hold.
+  esc (tap-hold $tap-time $hold-time esc (layer-toggle nav))
 )
 
+;; The default layer where we can permanent remapping.
 (deflayer base
-  @escctrl @a @s @d @f @j @k @l @;
+  @esc @a @s @d @f _ @j @k @l @;
+)
+
+;; Util layer to be able to use vim-like access to arrows.
+(deflayer nav
+  _ _ _ _ _ left down up right _
 )
