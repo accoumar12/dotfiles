@@ -17,7 +17,6 @@ alias .....='cd ../../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 
-alias hg='history|grep'
 alias tn='tmux new-session -s'
 alias ta='tmux attach -t'
 alias tl='tmux list-sessions'
@@ -65,14 +64,10 @@ alias lsn='ls -1'     #A column contains name of files and directories
 
 alias zshrc='${EDITOR} ~/.zshrc' # Quick access to the .zshrc file
 
-alias grep='grep --color'
-alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
-
-
 # Command line head / tail shortcuts
 alias -g H='| head'
 alias -g T='| tail'
-alias -g G='| grep'
+alias -g G='| rg'
 alias -g M="| most"
 alias -g N="| wc -l"
 alias -g V='| vim -'
@@ -89,7 +84,6 @@ alias dud='du -d 1 -h'
 alias ff='find . -type f -name'
 
 alias h='history'
-alias hgrep="fc -El 0 | grep"
 alias help='man'
 alias p='ps -f'
 alias sortnr='sort -n -r'
