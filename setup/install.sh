@@ -65,6 +65,8 @@ $PKG_INSTALL htop
 $PKG_INSTALL btop
 
 $PKG_INSTALL ripgrep
+$PKG_INSTALL fd-find
+ln -s $(which fdfind) ~/.local/bin/fd
 
 # tmux plugin manager. Do not forget to install plugins with prefix + I.
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
