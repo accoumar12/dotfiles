@@ -152,4 +152,4 @@ unset __mamba_setup
 # <<< mamba initialize <<<
 
 # Bitwarden completions
-eval "$(bw completion --shell zsh); compdef _bw bw;"
+# eval "$(bw completion --shell zsh); compdef _bw bw;"
