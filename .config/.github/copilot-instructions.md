@@ -84,6 +84,9 @@ If a change is made that doesn't yield the desired outcome, be prepared to rever
 - Design functions and modules with testability in mind (e.g., dependency injection).
 - Aim for high test coverage for critical components.
 
+## Write code in a top-down order
+- Write code in a top-down order: start with the high-level functions first, and then define the lower-level helper functions they call. This way, the reader encounters the overall logic before the implementation details
+
 ## Add Necessary Documentation
 
 - Include comments to explain complex logic, assumptions, or non-obvious code sections.
