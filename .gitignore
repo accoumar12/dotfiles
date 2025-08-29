@@ -30,3 +30,5 @@
 .config/vlc
 .config/enchant
 .config/xournalpp
+.config/google-chrome-for-testing
+.config/yarn
