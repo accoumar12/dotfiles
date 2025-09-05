@@ -58,6 +58,7 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit light MichaelAquilina/zsh-you-should-use
 zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit snippet OMZ::plugins/git-auto-fetch/git-auto-fetch.plugin.zsh
 zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
 zinit light kutsan/zsh-system-clipboard
 
