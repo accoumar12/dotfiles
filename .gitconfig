@@ -20,10 +20,11 @@
 	sort = version:refname
 [pull]
 	rebase = true
+	autoSetupRemote = true
 [rebase]
-    autoSquash = true
-    autoStash = true
-    updateRefs = true
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
 [merge]
 	conflictstyle = diff3
 [push]
