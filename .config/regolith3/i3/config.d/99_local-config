@@ -3,3 +3,6 @@ assign [class="Gnome-terminal"] workspace $ws1
 assign [class="Google-chrome"] workspace $ws2
 
 assign [class="Code"] workspace $ws3
+
+# Quickly open my todo list
+bindsym $mod+Shift+o exec --no-startup-id xdg-open ~/todos.md
