@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export PATH="$HOME/tools/nvim/bin:$PATH"
 
 # For zoxide.
@@ -13,14 +20,13 @@ export PATH="/mnt/c/Users/maccou/AppData/Local/Programs/Microsoft VS Code/bin:$P
 source "$HOME/.cargo/env"
 
 export POETRY_VIRTUALENVS_IN_PROJECT=true
-export PYTHONPATH="${PYTHONPATH}:/home/maccou/work/3d/3d-analytics"
 
 __conda_setup="$('/home/maccou/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "/home/maccou/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/maccou/miniconda3/etc/profile.d/conda.sh"
+# . "/home/maccou/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
     else
         export PATH="/home/maccou/miniconda3/bin:$PATH"
     fi
@@ -53,11 +59,13 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+# zinit light Aloxaf/fzf-tab
 zinit light MichaelAquilina/zsh-you-should-use
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
-zinit light kutsan/zsh-system-clipboard
+# xclip not installed on the server
+# zinit light kutsan/zsh-system-clipboard
+zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
@@ -75,14 +83,11 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
-# Prompt
-eval "$(starship init zsh)"
-
 # Keybindings
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
-bindkey '$' autosuggest-accept
+bindkey ']' autosuggest-accept
 bindkey -v
 
 zle_highlight+=(paste:none)
@@ -109,14 +114,38 @@ HIST_STAMPS="yyyy-mm-dd"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 source ~/.zsh_aliases
 
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(uv generate-shell-completion zsh)"
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+# source <(fzf --zsh)
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/opt/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/opt/miniforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
+
+eval "$(direnv hook zsh)"
