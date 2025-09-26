@@ -7,6 +7,8 @@
 	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	clean-branches = "!git branch | grep -v 'develop' | grep -v 'master' | grep -v 'main' | xargs git branch -D"
 	show-tags = "log --tags --no-walk --pretty='%h %d %s' --decorate"
+  fe = "fetch origin '+refs/heads/*:refs/remotes/origin/*'"
+
 [commit]
 	verbose = true
 [rerere]
