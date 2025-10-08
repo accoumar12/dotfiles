@@ -72,6 +72,8 @@ ln -s $(which fdfind) ~/.local/bin/fd
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 tmux source ~/.config/tmux/tmux.conf 
 
+# Do not do it before installing conda otherwise it will use conda to install
+# it....
 echo "Installing direnv..."
 curl -sfL https://direnv.net/install.sh | bash
 

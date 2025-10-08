@@ -2,7 +2,7 @@
 
 SHARE="//192.168.0.51/datasets"
 USER="maccou"
-PASSWORD="Nautilus12@"
+PASSWORD="password"
 
 # Start smbclient session and interactively download files
 smbclient $SHARE -U $USER%$PASSWORD <<EOF
