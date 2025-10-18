@@ -9,16 +9,7 @@
   "python.analysis.indexing": true,
   "python.analysis.autoImportCompletions": true,
   "editor.codeActionsOnSave": {
-    // "source.organizeImports": "explicit"
     "source.fixAll": "explicit",
-    // "source.addMissingImports": true,
-  },
-  "remote.SSH.remotePlatform": {
-    "thor.d3s": "linux",
-    "192.168.0.58": "linux",
-    "192.168.0.54": "linux",
-    "thor": "linux",
-    "algo": "linux"
   },
   "git.autofetch": true,
   "editor.inlineSuggest.enabled": true,
@@ -154,15 +145,6 @@
       ],
       "commands": [
         "editor.action.marker.next"
-      ]
-    },
-    {
-      "before": [
-        "<Leader>",
-        "u"
-      ],
-      "commands": [
-        "editor.unfoldAll"
       ]
     },
     {
@@ -357,7 +339,6 @@
   "vsicons.dontShowNewVersionMessage": true,
   "workbench.activityBar.location": "hidden",
   "gitlens.codeLens.enabled": false,
-  "mypy.dmypyExecutable": "/home/maccou/miniconda3/envs/myenv/bin/dmypy",
   "workbench.sideBar.location": "right",
   "gitlens.currentLine.enabled": false,
   "terminal.integrated.env.linux": {},
@@ -365,15 +346,6 @@
   "security.workspace.trust.untrustedFiles": "open",
   "symbols.hidesExplorerArrows": false,
   "svelte.enable-ts-plugin": true,
-  "[dotenv]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[ignore]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
   "git.mergeEditor": true,
   "debug.focusWindowOnBreak": false,
   "debug.inlineValues": "off",
@@ -424,7 +396,6 @@
   "[mdx]": {
     "editor.defaultFormatter": "unifiedjs.vscode-mdx"
   },
-  // "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
@@ -454,7 +425,13 @@
     "/tmp/postman-folder-post-response.instructions.md": true,
     "/tmp/postman-folder-pre-request.instructions.md": true,
     "/tmp/postman-http-request-post-response.instructions.md": true,
-    "/tmp/postman-http-request-pre-request.instructions.md": true
+    "/tmp/postman-http-request-pre-request.instructions.md": true,
+    "/var/folders/v5/7l936ln57_scb13sp_yd8lwm0000gp/T/postman-collections-post-response.instructions.md": true,
+    "/var/folders/v5/7l936ln57_scb13sp_yd8lwm0000gp/T/postman-collections-pre-request.instructions.md": true,
+    "/var/folders/v5/7l936ln57_scb13sp_yd8lwm0000gp/T/postman-folder-post-response.instructions.md": true,
+    "/var/folders/v5/7l936ln57_scb13sp_yd8lwm0000gp/T/postman-folder-pre-request.instructions.md": true,
+    "/var/folders/v5/7l936ln57_scb13sp_yd8lwm0000gp/T/postman-http-request-post-response.instructions.md": true,
+    "/var/folders/v5/7l936ln57_scb13sp_yd8lwm0000gp/T/postman-http-request-pre-request.instructions.md": true
   },
   "github.copilot.enable": {
     "*": false,
@@ -484,6 +461,7 @@
   },
   "workbench.statusBar.visible": false,
   "python.defaultInterpreterPath": "/bin/python3",
+  "vscode-default-keybindings.windowsKeybindings": true,
   // ======================================================
   // (END) SETTINGS TO HIDE WINDOW TITLEBAR ====
   // ======================================================

@@ -33,3 +33,4 @@
 .config/google-chrome-for-testing
 .config/yarn
 .config/eog
+.local/

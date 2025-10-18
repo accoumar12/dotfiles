@@ -6,32 +6,21 @@ export PATH="$HOME/.local/bin:$PATH"
 # Needed to use the latex extension for vscode.
 export PATH="/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 
-# To launch vscode from cli in wsl.
-export PATH="/mnt/c/Users/MartinAccou/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
-
 # For sqlc.
 export PATH="/snap/bin:$PATH"
+
+# For direnv.
+export PATH="$HOME/bin:$PATH"
 
 # For uv.
 # source "$HOME/.cargo/env"
 
 export POETRY_VIRTUALENVS_IN_PROJECT=true
 
-__conda_setup="$('/home/maccou/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/maccou/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/maccou/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/maccou/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
 
-FNM_PATH="/home/maccou/.local/share/fnm"
+FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/maccou/.local/share/fnm:$PATH"
+  export PATH="$HOME/.local/share/fnm:$PATH"
   eval "`fnm env --shell zsh`"
 fi
 export MANPATH=$HOME/tools/ripgrep/doc/man:$MANPATH
@@ -130,27 +119,9 @@ setopt extendedglob
 
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(uv generate-shell-completion zsh)"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh) # Make sure to have a recent fzf version
 source <(just --completions zsh)
 eval "$(direnv hook zsh)" 
-
-
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'micromamba shell init' !!
-export MAMBA_EXE='/home/maccou/.local/bin/micromamba';
-export MAMBA_ROOT_PREFIX='/home/maccou/micromamba';
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
-fi
-unset __mamba_setup
-# <<< mamba initialize <<<
-
-# Bitwarden completions
-# eval "$(bw completion --shell zsh); compdef _bw bw;"
