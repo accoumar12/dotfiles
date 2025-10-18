@@ -59,6 +59,73 @@ sudo systemctl start kanata
 sudo systemctl enable kanata
 ```
 
-### Misc
+## Misc
 
 Install VSCode, Chrome.
+
+## Mac settings
+
+### Kanata
+
+```bash
+brew install kanata
+```
+
+To automatically launch Kanata at system startup, you need to create two .plist files and place them in /Library/LaunchDaemons/.
+
+The first one starts the Karabiner driver.
+The second one launches Kanata with your custom configuration.
+
+For `org.custom.karabiner.plist`:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>org.custom.karabiner</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/Application Support/org.pqrs/Karabiner-DriverKit-VirtualHIDDevice/Applications/Karabiner-VirtualHIDDevice-Daemon.app/Contents/MacOS/Karabiner-VirtualHIDDevice-Daemon</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+</dict>
+</plist>
+```
+
+For `org.custom.kanata.plist`:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>org.custom.kanata</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/kanata</string>
+        <string>--cfg</string>     <string>YOUR_KBD_FILE_PATH</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+</dict>
+</plist>
+```
+
+```bash
+sudo launchctl load /Library/LaunchDaemons/org.custom.karabiner.plist
+sudo launchctl load /Library/LaunchDaemons/org.custom.kanata.plist
+```
+
+In case you need to stop Kanata from running via launchctl:
+
+```bash
+sudo launchctl unload /Library/LaunchDaemons/org.custom.kanata.plist
+```
