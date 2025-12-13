@@ -1,5 +1,5 @@
 [user] 
-	email = martin.accou@icloud.com
+	email = martin.accou@physicsx.ai
 	name = Martin Accou
 [alias]
 	ac = commit -am
@@ -53,4 +53,7 @@
 	algorithm = histogram
 	colorMoved = plain
 	mnemonicPrefix = true
-
+[includeIf "gitdir:~/perso/"]
+    path = "~/.config/git/perso.config"
+[includeIf "gitdir:~/work/"]
+    path = "~/.config/git/work.config"

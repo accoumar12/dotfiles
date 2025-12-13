@@ -33,4 +33,6 @@
 .config/google-chrome-for-testing
 .config/yarn
 .config/eog
+# We do not want to commit our work email!
+.config/git/work
 .local/
