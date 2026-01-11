@@ -67,6 +67,9 @@ zinit snippet OMZP::git
 # zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
+# Edit command buffer
+bindkey -M vicmd 'v' edit-command-line
+
 # Avoid redundant generation of zcompdump
 autoload -Uz compinit
 if [[ ! -f ~/.zcompdump ]]; then
@@ -87,6 +90,10 @@ bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 bindkey ']' autosuggest-accept
 bindkey -v
+
+bindkey '^_' undo
+# Nice auto-completions
+bindkey ' ' magic-space
 
 zle_highlight+=(paste:none)
 
@@ -120,6 +127,9 @@ source ~/.zsh_aliases
 # Enable extended globbing
 setopt extendedglob
 
+# Enable zmv to easily rename files
+autoload -Uz zmv
+
 # Shell integrations
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(uv generate-shell-completion zsh)"
@@ -148,3 +158,4 @@ unset __conda_setup
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
