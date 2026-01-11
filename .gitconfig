@@ -8,6 +8,7 @@
 	clean-branches = "!git branch | grep -v 'develop' | grep -v 'master' | grep -v 'main' | xargs git branch -D"
 	show-tags = "log --tags --no-walk --pretty='%h %d %s' --decorate"
   fe = "fetch origin '+refs/heads/*:refs/remotes/origin/*'"
+  clone-for-worktrees = "!git-clone-bare-for-worktrees.sh"
 [commit]
 	verbose = true
 [rerere]
