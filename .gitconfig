@@ -9,6 +9,9 @@
 	show-tags = "log --tags --no-walk --pretty='%h %d %s' --decorate"
   fe = "fetch origin '+refs/heads/*:refs/remotes/origin/*'"
   clone-for-worktrees = "!git-clone-bare-for-worktrees.sh"
+  search-history = "!git-search-history.sh"
+  pub-merge-gh = "!git publish && gh pr create --fill && gh pr merge --auto --squash --delete-branch"
+  publish = "!git push --set-upstream origin $(git branch --show-current)"
 [commit]
 	verbose = true
 [rerere]
