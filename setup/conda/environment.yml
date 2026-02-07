@@ -1,0 +1,17 @@
+name: utils
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - vim
+  - fd-find
+  - ripgrep
+  - htop
+  - btop
+  - tmux
+  - git
+  - curl
+  - wget
+  - tree
+
