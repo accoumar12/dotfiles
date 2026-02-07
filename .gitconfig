@@ -12,6 +12,7 @@
   pub-merge-gh = "!git publish && gh pr create --fill && gh pr merge --auto --squash --delete-branch"
   publish = "!git push --set-upstream origin $(git branch --show-current)"
   clean-branches = "!git branch -d $(git branch --merged=main | grep -v main)"
+  delete-all-branches-except-main= "!git branch | grep -v "main" | xargs git branch -D"
 [commit]
 	verbose = true
 [rerere]
