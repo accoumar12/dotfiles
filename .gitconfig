@@ -13,6 +13,7 @@
   publish = "!git push --set-upstream origin $(git branch --show-current)"
   clean-branches = "!git branch -d $(git branch --merged=main | grep -v main)"
   delete-all-branches-except-main= "!git branch | grep -v "main" | xargs git branch -D"
+  ci= "!git add -A; git commit -m "ci""
 [commit]
 	verbose = true
 [rerere]
@@ -64,3 +65,9 @@
     path = "~/.config/git/perso.config"
 [includeIf "gitdir:~/work/"]
     path = "~/.config/git/work.config"
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/conda/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/conda/bin/gh auth git-credential
