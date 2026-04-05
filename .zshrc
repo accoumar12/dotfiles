@@ -154,7 +154,6 @@ unset __conda_setup
 source <(fzf --zsh) # Make sure to have a recent fzf version
 source <(just --completions zsh)
 eval "$(direnv hook zsh)" 
-<<<<<<< Updated upstream
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

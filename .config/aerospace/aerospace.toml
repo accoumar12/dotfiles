@@ -132,7 +132,7 @@ on-mode-changed = []
     alt-b = 'workspace 𝙱̲rowsing'
     alt-c = 'workspace 𝙲̲ommunication'
     alt-f = 'fullscreen'
-    alt-m = 'workspace F̲uzz'
+    alt-z = 'workspace F̲uzz'
     alt-p = 'workspace 𝙿̲erso'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -140,7 +140,7 @@ on-mode-changed = []
     alt-shift-2 = 'move-node-to-workspace Project_𝟸̲'
     alt-shift-b = 'move-node-to-workspace 𝙱̲rowsing'
     alt-shift-c = 'move-node-to-workspace 𝙲̲ommunication'
-    alt-shift-m = 'move-node-to-workspace F̲uzz'
+    alt-shift-z = 'move-node-to-workspace F̲uzz'
     alt-shift-p = 'move-node-to-workspace 𝙿̲erso'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
