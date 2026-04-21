@@ -89,7 +89,8 @@
       "Bash(az:*)",
       "Bash(git push:*)",
       "Bash(git pull:*)"
-    ]
+    ],
+    "defaultMode": "bypassPermissions"
   },
   "hooks": {
     "PreToolUse": [
