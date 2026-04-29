@@ -76,22 +76,10 @@
       "Bash(aws:*)"
     ],
     "deny": [],
-    "ask": [
-      "Bash(rm:*)",
-      "Bash(mv:*)",
-      "Bash(cp:*)",
-      "Bash(curl:*)",
-      "Bash(wget:*)",
-      "Bash(sudo:*)",
-      "Bash(docker:*)",
-      "Bash(kubectl:*)",
-      "Bash(gcloud:*)",
-      "Bash(az:*)",
-      "Bash(git push:*)",
-      "Bash(git pull:*)"
-    ],
+    "ask": [],
     "defaultMode": "bypassPermissions"
   },
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -111,6 +99,5 @@
   },
   "effortLevel": "high",
   "autoUpdatesChannel": "latest",
-  "skipDangerousModePermissionPrompt": true,
-  "model": "opus"
+  "skipDangerousModePermissionPrompt": true
 }
