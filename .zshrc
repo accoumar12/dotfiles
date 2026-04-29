@@ -52,6 +52,9 @@ zinit light MichaelAquilina/zsh-you-should-use
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/git-auto-fetch/git-auto-fetch.plugin.zsh
 zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
+# vi-mode plugin auto-sets RPS1='$(vi_mode_prompt_info)' when RPS1/RPROMPT are
+# empty; starship manages the right prompt itself, so clear it.
+unset RPS1
 zinit light kutsan/zsh-system-clipboard
 
 source ~/.config/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
