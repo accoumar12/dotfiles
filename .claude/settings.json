@@ -80,11 +80,7 @@
       "Bash(rm:*)",
       "Bash(mv:*)",
       "Bash(cp:*)",
-      "Bash(curl:*)",
-      "Bash(wget:*)",
-      "Bash(sudo:*)",
-      "Bash(docker:*)",
-      "Bash(kubectl:*)"
+      "Bash(sudo:*)"
     ],
     "defaultMode": "bypassPermissions"
   },
