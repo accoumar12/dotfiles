@@ -10,7 +10,7 @@ config-version = 2
 after-startup-command = []
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -45,7 +45,7 @@ automatically-unhide-macos-hidden-apps = false
 # even when they are invisible.
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["Project_𝟷̲", "Project_𝟸̲", "𝙱̲rowsing", "𝙲̲ommunication", "F̲uzz", "𝙿̲erso"]
+persistent-workspaces = ["Project_𝟷̲", "Project_𝟸̲", "𝙱̲rowsing", "𝙲̲ommunication", "Fuz̲z", "𝙿̲erso"]
 
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -111,6 +111,8 @@ on-mode-changed = []
     alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
+    alt-period = 'focus dfs-next --boundaries-action wrap-around-the-workspace'
+    alt-shift-period = 'focus dfs-prev --boundaries-action wrap-around-the-workspace'
     alt-h = 'focus left'
     alt-j = 'focus down'
     alt-k = 'focus up'
@@ -132,7 +134,7 @@ on-mode-changed = []
     alt-b = 'workspace 𝙱̲rowsing'
     alt-c = 'workspace 𝙲̲ommunication'
     alt-f = 'fullscreen'
-    alt-z = 'workspace F̲uzz'
+    alt-z = 'workspace Fuz̲z'
     alt-p = 'workspace 𝙿̲erso'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -140,7 +142,7 @@ on-mode-changed = []
     alt-shift-2 = 'move-node-to-workspace Project_𝟸̲'
     alt-shift-b = 'move-node-to-workspace 𝙱̲rowsing'
     alt-shift-c = 'move-node-to-workspace 𝙲̲ommunication'
-    alt-shift-z = 'move-node-to-workspace F̲uzz'
+    alt-shift-z = 'move-node-to-workspace Fuz̲z'
     alt-shift-p = 'move-node-to-workspace 𝙿̲erso'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
