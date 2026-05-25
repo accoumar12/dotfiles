@@ -36,3 +36,25 @@
 .local/
 # Local git config.
 .config/git/local.config
+
+# Secrets
+.claude/hooks/.slack_webhook
+
+# Claude Code runtime state (machine-local, not for version control)
+.claude/.credentials.json
+.claude/.last-cleanup
+.claude/history.jsonl
+.claude/sessions/
+.claude/projects/
+.claude/shell-snapshots/
+.claude/file-history/
+.claude/backups/
+.claude/cache/
+.claude/downloads/
+.claude/paste-cache/
+.claude/session-env/
+.claude/statusline-cost-log
+.claude/policy-limits.json
+.claude/mcp-needs-auth-cache.json
+.claude/plugins/known_marketplaces.json
+.claude/plugins/marketplaces/
