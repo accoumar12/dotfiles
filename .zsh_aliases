@@ -1,5 +1,6 @@
 alias rsync="rsync -av --info=progress2 --exclude='.git'"
 alias scp='rsync -Pravdtze ssh'
+alias conda='micromamba'
 
 alias n='nvim'
 alias j="just"
