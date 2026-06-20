@@ -68,7 +68,8 @@
     path = "~/.config/git/work.config"
 [credential "https://github.com"]
 	helper = 
-	helper = !/opt/conda/bin/gh auth git-credential
+	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/opt/conda/bin/gh auth git-credential
+	helper = !/usr/bin/gh auth git-credential
+

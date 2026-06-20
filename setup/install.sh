@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # filepath: /home/maccou/dotfiles/install.sh
 
+# This script is designed to automate the installation of dotfiles and required packages on a Linux system.
+# Needs sudo
+
 set -e  # Exit immediately if a command exits with non-zero status
 
 echo "====== Starting dotfiles installation ======"

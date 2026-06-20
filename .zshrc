@@ -155,8 +155,8 @@ unset __conda_setup
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh) # Make sure to have a recent fzf version
-source <(just --completions zsh)
-eval "$(direnv hook zsh)" 
+# source <(just --completions zsh)
+# eval "$(direnv hook zsh)" 
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
