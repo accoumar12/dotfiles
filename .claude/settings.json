@@ -82,7 +82,15 @@
       "Bash(cp:*)",
       "Bash(sudo:*)"
     ],
-    "defaultMode": "bypassPermissions"
+    // "defaultMode": "bypassPermissions",
+    "defaultMode": "auto"
+  },
+  "autoMode": {
+    "environment": [
+      "$defaults",
+      "Organization: PhysicsX (physicsx.ai). Primary use: software/ML engineering",
+      "Source control: personal GitHub org github.com/accoumar12, plus PhysicsX GitHub org repos"
+    ]
   },
   "model": "opus[1m]",
   "hooks": {
@@ -104,6 +112,18 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/notify_slack_done.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | { read -r f; case \"$f\" in *.py) out=$(uvx ty check \"$f\" 2>&1) || { echo \"$out\" >&2; exit 2; } ;; esac; }",
+            "statusMessage": "Type-checking with ty..."
           }
         ]
       }
