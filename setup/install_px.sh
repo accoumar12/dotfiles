@@ -5,7 +5,7 @@ mv ~/.gitconfig ~/.gitconfig.bak
 
 micromamba install -y stow zsh zoxide fzf xclip ripgrep fd-find btop
 curl -fsSL https://claude.ai/install.sh | bash
-curl -sS https://starship.rs/install.sh | sh -s -- -b ~/.local/bin
+curl -sS https://starship.rs/install.sh | sh -s -- -y -b ~/.local/bin
 
 cd ~/dotfiles
 stow .
