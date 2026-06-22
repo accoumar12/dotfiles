@@ -3,7 +3,7 @@
 mv ~/.bashrc ~/.bashrc.bak
 mv ~/.gitconfig ~/.gitconfig.bak
 
-conda install -y stow zsh zoxide fzf xclip ripgrep fd-find btop
+micromamba install -y stow zsh zoxide fzf xclip ripgrep fd-find btop
 curl -fsSL https://claude.ai/install.sh | bash
 curl -sS https://starship.rs/install.sh | sh -s -- -b ~/.local/bin
 
