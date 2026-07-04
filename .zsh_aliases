@@ -4,6 +4,7 @@ alias conda='micromamba'
 
 alias n='nvim'
 alias j="just"
+alias cc="claude"
 
 ## Use a long listing format ##
 alias ls='ls --color'
