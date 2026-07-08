@@ -1,5 +1,9 @@
 (defcfg
   process-unmapped-keys yes
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+    "Magic Keyboard"
+  )
 )
 
 ;; Define the keys that will be remapped.
