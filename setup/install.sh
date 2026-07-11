@@ -94,6 +94,17 @@ exec zsh
 # Install with brew to have a recent version...
 brew install fzf
 
+# Bitwarden CLI (rbw), used by the Claude Slack-notify hook to read the webhook
+# URL. The secret-free config (email, EU server, timeouts) is stowed to
+# ~/.config/rbw/config.json; pinentry comes in as an rbw dependency.
+brew install rbw
+# Per-machine, interactive (cannot be committed): device API key + master
+# password + 2FA. Run once after install:
+#   rbw register   # paste personal API key client_secret:
+#                  #   Bitwarden web vault -> Account Settings -> Security -> Keys -> View API Key
+#   rbw login
+#   rbw unlock
+
 # Regolith desktop
 wget -qO - https://archive.regolith-desktop.com/regolith.key | \
 gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg > /dev/null

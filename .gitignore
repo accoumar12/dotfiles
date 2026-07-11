@@ -38,7 +38,9 @@
 .config/git/local.config
 
 # Secrets
-.claude/hooks/.slack_webhook
+# rbw: track only the secret-free config; never its vault/token state.
+.config/rbw/*
+!.config/rbw/config.json
 
 # Claude Code runtime state (machine-local, not for version control)
 .claude/.credentials.json
