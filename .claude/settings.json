@@ -79,7 +79,6 @@
     "ask": [],
     "defaultMode": "bypassPermissions"
   },
-  "model": "claude-opus-4-8",
   "hooks": {
     "PreToolUse": [
       {
@@ -98,7 +97,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/notify_slack.py"
+            "command": "uv run --script ~/.claude/hooks/notify_slack.py"
           }
         ]
       }
@@ -109,7 +108,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/notify_slack.py"
+            "command": "uv run --script ~/.claude/hooks/notify_slack.py"
           }
         ]
       }
@@ -141,5 +140,6 @@
       "Organization: PhysicsX (physicsx.ai). Primary use: software/ML engineering",
       "Source control: personal GitHub org github.com/accoumar12, plus PhysicsX GitHub org repos"
     ]
-  }
+  },
+  "model": "claude-opus-4-8"
 }
